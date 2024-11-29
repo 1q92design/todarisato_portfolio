@@ -1,0 +1,957 @@
+@charset "utf-8";
+
+/*スクロールを滑らかに*/
+html {
+  scroll-behavior: smooth;
+}
+
+/* bodyのデフォルトを設定 */
+body {
+	background-color: #f8f4e6;
+  color: #2b2b2b;
+  font-family:  'Trebuchet MS','Gill Sans';
+  margin: 0;
+}
+  
+/* デフォルトのマージンを削除 */
+body, h1, h2, h3, p, dl, dd {
+  margin: 0;
+}
+
+/* リストのスタイルを設定 */
+ul {
+  list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+/* 画像の扱いを簡単にする */
+img {
+  max-width: 100%;
+	vertical-align: bottom;
+}
+
+/* リンクのデフォルトを設定 */
+a {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+a:hover {
+	opacity: .7;
+}
+
+/* テーブルのデフォルトを設定 */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ボックスモデルをborder-boxにする */
+*,*::before,*::after {
+	box-sizing: border-box;
+}
+
+/*loading--------------------*/
+
+
+/*header--------------------*/
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 90px;
+	padding: 0 30px;
+	/* border-bottom: 1px solid #2b2b2b; */
+  /*固定*/
+	position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+	background-color: #f8f4e6;
+	z-index: 1;
+}
+
+
+.logo {
+  width: 100%;
+}
+
+.logo img {
+	line-height: 0;
+	width: 200px;
+}
+
+
+/*ハンバーガ―メニュー*/
+.hamburger {
+  width: 50px;
+  height: 50px;
+  background-color: #2b2b2b;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  cursor: pointer;
+  transition: 0.3s;
+	margin: 20px 20px 0 0;
+	border-radius: 50px;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+/* ハンバーガーメニューの線の設定（メニューが閉じている時） */
+.hamburger span {
+  width: 25px;
+  height: 2px ;
+  background: #fff;
+  position: absolute;
+  left: 13px;
+  transition: 0.3s ease-in-out;
+}
+/* 1本目の線の位置を設定 */
+.hamburger span:nth-child(1) {
+  top: 18px;
+}
+/* 2本目の線の位置を設定 */
+.hamburger span:nth-child(2) {
+  top: 25px;
+}
+/* 3本目の線の位置を設定 */
+.hamburger span:nth-child(3) {
+  top: 32px;
+}
+/*
+ハンバーガーメニューの線の設定（メニューが開いている時）
+1本目の線を-45度回転
+*/
+.hamburger.active span:nth-child(1) {
+  top: 23.5px;
+  left: 12.5px;
+  background :#fff;
+  transform: rotate(-45deg);
+}
+/* 2本目と3本目は重ねて45度回転 */
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 23.5px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+/*
+メニューの設定
+最初は閉じている状態なので、「opacity: 0;」「visibility: hidden;」
+で要素を非表示にしておく
+*/
+#navi {
+  width: 100%;
+  height: 100vh;
+  background-color: #2b2b2b;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  visibility: hidden;
+}
+/*
+ハンバーガーメニューがクリックされた際に、jQueryで#naviにactiveクラスを追加して、
+メニューを表示させる。
+*/
+#navi.active {
+  opacity: 1;
+  visibility: visible;
+}
+#navi .logo {
+  width: 100px;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+}
+#navi .menu {
+  margin: 80px 0 40px 0;
+}
+#navi .menu li {
+  margin-bottom: 20px;
+}
+#navi .menu a {
+  color: #fff;
+  font-weight: normal;
+	font-size: 64px;
+}
+#navi .btn {
+  width: 300px;
+  border: solid 1px #fff;
+	border-radius: 50px;
+  color: #fff;
+  display: block;
+  font-weight: normal;
+  padding: 15px 0;
+  margin: 0 auto;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+#navi .btn:hover {
+  background-color: #fff;
+  color: #2b2b2b;
+}
+	
+
+
+/*mainvisual--------------------*/
+
+.sp-view {
+  display: none;
+}
+
+#mainvisual {
+	max-width: 600px;
+	width: 100%;
+	margin: 200px auto 0;
+}
+
+.pc-view {
+  height: 100vh;
+}
+
+.bottom {
+	margin-bottom: 10px;
+}
+
+.bottom-end {
+  margin-bottom: 60px;
+}
+
+.flex {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.span1 {
+	font-size: 18px;
+}
+
+.span2 {
+	font-size: 14.5px;
+	font-weight: bold;
+}
+
+.h-btn {
+	border-radius: 50%;
+	padding: 20px 20px;
+	font-size: 12.8px;
+	font-weight: bold;
+	background-color: black;
+	color: #f8f4e6;
+	}
+
+	.c-btn {
+		border-radius: 70px;
+		border: solid 1px ;
+		padding: 10px 42px;
+		font-size: 20px;
+		font-weight: bold;
+		color: black;
+		font-family:Georgia, 'Times New Roman', Times, serif
+		}
+  
+    
+    /*ホバー時ブルブル震えるー-------*/
+    .buruburu-hover:hover {
+      display: inline-block;
+      animation: hurueru .1s  infinite;
+      opacity: 1;
+  }
+  
+  @keyframes hurueru {
+      0% {transform: translate(0px, 0px) rotateZ(0deg)}
+      25% {transform: translate(2px, 2px) rotateZ(1deg)}
+      50% {transform: translate(0px, 2px) rotateZ(0deg)}
+      75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+      100% {transform: translate(0px, 0px) rotateZ(0deg)}
+  }
+
+  /*ホバー時ボタンのサイズを大きくする*/
+
+.big-hover img{
+  transition: all 0.3s ease;/*ふわっとさせる。*/
+}
+  
+.big-hover img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/*ホバー時浮かす*/
+.fuwatto-hover img:hover {
+  transform: translateY(-5px);
+  transition-duration: 0.5s;
+}
+
+  /*ホバー時くるっとさせる*/
+  .kurutto-hover img:hover {
+    transition: transform 1.5s;
+    transform: rotateY(360deg);
+  }
+
+
+  /*スクロール*/
+  .scroll {
+    position  : absolute;
+    font-size : 16px;
+    font-weight: bold;
+    /* writing-mode : vertical-rl; */
+    /* top : 30%; */
+    left : 50%;
+    color: #2b2b2b;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .scroll::after {
+    content : '';
+    display : inline-block;
+    position : absolute;
+    background-color: #2b2b2b;
+    right : 50%;
+    bottom : -115px;
+    transform : translateX(-50%);
+    width : 2px;
+    height : 100px;
+    animation: scroll 1.5s infinite;
+  }
+
+  /*スクロールアニメーション*/
+  @keyframes scroll {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  50.1% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+  }
+
+
+/*section common--------------------r*/
+
+.wrapper {
+	width: 100%;
+	margin: 0 auto 60px;
+  max-width: 800px;
+  padding-top: 100px;
+}
+
+.sec-title {
+  margin-bottom: 20px;
+}
+
+.span3 {
+  font-size: 24px;
+}
+
+.span4 {
+  font-size: 16px;
+  color: #777777;
+}
+
+/*about--------------------r*/
+
+
+
+#about .section-flex {
+	display: flex;
+	gap: 50px;
+	align-items: center;
+}		
+	
+	.watashi img {
+		width: 100%;
+		height: 240px;
+		object-fit: cover;
+    border-radius: 50%;
+	}
+
+  .fadeIn {
+		animation-name:fadeInAnime;
+		animation-duration:5s;
+		animation-fill-mode:forwards;
+		opacity:0;
+		}
+		
+		@keyframes fadeInAnime{
+			from {
+				opacity: 0;
+			}
+		
+			to {
+				opacity: 1;
+			}
+		}
+	
+	
+	.text {
+	  width: 470px;
+	}
+
+  /*一文字ずつ表示ー-------*/
+.textAnime_2s {
+  clip-path: inset(0 100% 0 0);
+  /* steps(9)の数字は文字数を入れる */
+  animation: textAnime_2s 2s steps(13);
+  text-align: center;
+  display: inline-block;
+  animation-fill-mode:forwards;/*終了時の状態を維持*/
+  }
+
+  @keyframes textAnime_2s {
+  100% {
+  clip-path: inset(0 0 0 0);
+  
+  }
+  }
+	
+	h3 {
+	margin-bottom: 20px;
+	font-weight: normal;
+	font-size: 24px;
+	}
+	
+	.about-text{
+		font-size: 16px;
+		line-height: 28px;
+		margin-bottom: 20px;
+		text-align: justify;
+	}
+	
+	.like {
+		color: #2b2b2b;
+		background:#b2b2b2;
+	}
+	
+	.btn {
+	  font-size: 20px;
+	}
+
+
+
+/*graphic--------------------*/
+
+
+	/* product_g */
+
+
+  .product_g ul {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .product_g li {
+    width: calc((100% - 64px) / 3);
+    overflow:hidden;/* はみでた部分を非表示 */
+  }
+
+  .product_g img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    transition: transform .6s ease; /* ホバーゆっくり変化させる */
+  }
+
+  .product_g img:hover {
+    transform: scale(1.05); /* ホバー時拡大 */
+  }
+
+  
+  
+  .product_g h4 {
+    font-weight: normal;
+  }
+
+  
+  /* ポップアップ */
+  .open {
+    cursor:pointer; 
+  }
+  
+  .open:hover {
+    opacity: .7;
+  }
+  
+  /* #popup1 {
+    display: none;
+  }
+   */
+
+  [id^="popup"] {
+    display: none;
+}
+
+  .overlay {
+    display: none;
+  }
+
+  /* #popup1:checked + .overlay {
+    display: block;
+    background-color: #00000070;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+ */
+
+  [id^="popup"]:checked + .overlay {
+    display: block;
+    background-color: #00000070;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  .window {
+    width: 600px;
+    max-width: 600px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .close {
+    cursor:pointer;
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 24px;
+  }
+  
+  
+  /*====================
+  slick
+  ====================*/
+  
+  #popin .slider-section {
+    margin: 0 auto;
+  }
+
+  
+  .slider-section {
+    max-width: 600px;
+    margin: 0 auto;
+    /* padding: 30px 0; */
+    }
+
+  
+    .sliderArea {
+    width: 400px;
+    margin: 0 auto;
+    padding: 15% 25px 4%;
+    }
+  
+    .sliderArea.w300 {
+    max-width: 300px;
+    }
+  
+  
+  .slick-list {
+    margin: 0 auto;
+  }
+  
+  
+    .slick-slide img {
+    width: 400px;
+    height: auto;
+    }
+  
+    
+    .slick-slide {
+    transition: all ease 1s;
+    opacity: 1;
+    }
+  
+    .slick-active {
+    opacity: 1;
+    }
+    .slick-current {
+    opacity: 1;
+    }
+  
+    .slider-text {
+      width: 400px;
+    margin: 0 auto;
+    padding: 0 25px;
+    }
+  
+    .slider-text-title {
+      margin-bottom: 3px;
+      font-size: 16px;
+    }
+  
+    .slider-text-body {
+      text-align: justify;
+      font-size: 14px;
+    }
+    
+    
+    
+    /*矢印の設定*/
+    
+    .slick-arrow {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0;
+    width: 20px;
+    height: 38px;
+    color: transparent;
+    z-index: 1;
+    transition: opacity 0.5s;
+    z-index: 1;
+    }
+    .slick-arrow:hover {
+    opacity: 0.7;
+    }
+    
+    /* 共通設定 */
+    
+    .slick-next::before,
+    .slick-next::after,
+    .slick-prev::before,
+    .slick-prev::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+    }
+
+    .slick-next::after,
+    .slick-prev::after {
+    width: 26px;
+    height: 26px;
+    border-top: 2px solid #2b2b2b;
+    border-right: 2px solid #2b2b2b;
+    }
+    
+    /* next */
+    
+    .slick-next {
+    right: -50px;
+    }
+    .slick-next::after {
+    right: 4px;
+    transform: rotate(45deg);
+    }
+    
+    /* prev */
+    
+    .slick-prev {
+    left: -50px;
+    }
+
+    .slick-prev::after {
+    left: 4px;
+    transform: rotate(-135deg);
+    }
+    
+/*webdesign--------------------r*/
+  
+
+	/* product_w */
+
+
+  .product_w ul {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  
+  .product_w li {
+    width: calc((100% - 32px) / 2);
+    overflow:hidden;/* はみでた部分を非表示 */
+  }
+  
+  .product_w img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    transition: transform .6s ease; /* ホバーゆっくり変化させる */
+  }
+
+  .product_w img:hover {
+    transform: scale(1.05); /* ホバー時拡大 */
+  }
+  
+  .product_w h4 {
+    font-weight: normal;
+  }
+
+  /*contact--------------------*/
+
+
+
+#contact dl {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 8px;/*縦の間隔*/
+	margin-bottom: 30px;
+}
+
+#contact dt {
+	width: 30%;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+#contact .Form-Item-Label-Required {
+  border-radius: 10px;
+  margin-right: 8px;
+  padding-top: 6px 6px; 
+  width: 36px;
+  display: inline-block;
+  text-align: center;
+  background: #2b2b2b;
+  color: #fff;
+  font-size: 12px;
+	font-weight: normal;
+}
+
+#contact dd {
+	width: 70%;
+}
+
+#contact dd input,#contact dd textarea {
+	width: 100%;
+	padding: 10px; /*テキストアリアの中のパディング*/
+	background-color: #fff;
+}
+
+
+#contact dd textarea {
+	height: 160px;
+	line-height: 1.5;
+}
+
+
+#contact .btn {
+	text-align: center;
+}
+
+#contact .btn input {
+	width: 240px;
+	padding: 15px;
+	background-color: #2d2d2d;
+	color: #fff;
+	border:solid 1px #2d2d2d;
+	border-radius: 50px;
+	transition: all 0.7s ease;/*ふわっとさせる。*/
+  font-size: 12pt;
+}
+
+#contact .btn input:hover {
+	background-color: #fff;
+	color: #2d2d2d;
+}
+
+
+
+
+  /*footer--------------------*/
+
+  footer {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2b2b2b;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
+  }
+
+
+/*sp---------------------------------------------------------------------r*/
+
+	
+	@media only screen and (max-width: 780px){
+
+		.pc-view {
+			display: none;
+			}
+	
+		
+		.sp-view {
+			display:inherit;
+			padding: 30px 5% 60px;
+		}
+
+/*mainvisual--------------------*/
+
+#mainvisual {
+	max-width: 780px;
+	width: 100%;
+	margin: 100px auto 0;
+}
+
+.bottom {
+	margin-bottom: 10px;
+}
+
+.bottom-end {
+  margin-bottom: 60px;
+}
+
+.flex {
+	flex-direction: column;
+	align-items: center;
+}
+
+.sp-flex {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+}
+
+.sp-nigaoe img{
+  width: 650px;
+}
+
+
+.scroll {
+  display: none;
+}
+
+
+
+/*section common-----------*/
+
+.wrapper {
+	width: 100%;
+	margin: 0 auto 30px;
+  padding:0 5% 30px;
+}
+
+.sec-title {
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.span3 {
+  font-size: 20px;
+}
+
+.span4 {
+  font-size: 14px;
+}
+
+
+/*about--------------------r*/
+
+#about{
+padding:0 5%;
+}
+
+#about .section-flex {
+	flex-direction: column;
+  margin: 0 auto;
+}
+
+#about .text {
+  text-align: center;
+}
+
+.about-text{
+  font-size: 14px;
+  line-height: 25px;
+  margin: 0 auto 20px;
+  text-align: justify; /* 両端揃えのまま */
+  width: 85%; /* 必要に応じて横幅を調整 */
+}
+
+
+/*graphicdesign--------------------r*/
+
+/* product_g */
+
+
+.product_g ul {
+  display: flex;
+  /* gap: 32px; */
+  gap: 3%;
+  flex-wrap: wrap;
+}
+
+.product_g li {
+  width: calc((100% - 3%) / 2);
+  /* box-sizing: border-box; */
+}
+
+.product_g h4 {
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+
+    /*webdesign--------------------r*/
+
+
+	/* product_w */
+
+  
+
+
+  .product_w ul {
+    display: flex;
+    /* gap: 32px; */
+    gap: 3%;
+    flex-wrap: wrap;
+  }
+  
+  .product_w li {
+    width: calc((100% - 3%) / 2);
+    /* box-sizing: border-box; */
+  }
+
+  .product_w h4 {
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+		
+		
+		
+	}
