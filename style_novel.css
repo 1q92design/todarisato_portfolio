@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+/* bodyのデフォルトを設定 */
+body {
+background-color: #535353;
+color: #080808;
+font-family: 'Trebuchet MS','Gill Sans';
+margin: 0;
+}
+
+/* デフォルトのマージンを削除 */
+body, h1, h2, h3, p, dl, dd {
+margin: 0;
+}
+
+/* リストのスタイルを設定 */
+ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+ol {
+padding: 0;
+margin: 0;
+}
+
+/* 画像の扱いを簡単にする */
+img {
+max-width: 100%;
+vertical-align: bottom;
+}
+
+/* リンクのデフォルトを設定 */
+a {
+text-decoration: none;
+color: #080808;
+}
+
+a:hover {
+opacity: .7;
+}
+
+/* テーブルのデフォルトを設定 */
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/* ボックスモデルをborder-boxにする */
+*,*::before,*::after {
+box-sizing: border-box;
+}
+
+/**header--------------------*/
+
+#novel {
+padding: 16px 16px 0;
+max-width: 1000px;
+margin: 0 auto 20px;
+}
+
+#novel h3 {
+font-size: 24px;
+font-weight: bolder;
+}
+
+.flex {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.btn {
+border: solid 2px;
+border-radius: 50%;
+padding: 5px 10px;
+font-size: 16px;
+font-weight: bold;
+}
+
+.line {
+
+border-top: 3px solid #080808;
+}
+
+main {
+padding: 0 16px;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+/**book--------------------*/
+
+section {
+margin-bottom: 30px;
+}
+
+
+.book-flex {
+display: flex;
+align-items: center;
+margin: 0 0 8px 5px;
+gap:8px;
+
+}
+
+.horror-sec-title {
+font-size: 18px;
+margin: 0 0 8px 16px;
+position: relative;
+}
+
+.horror-sec-title::before {
+position: absolute;
+content: "";
+top: 45%;
+left: -16px;
+width: 12px;
+height: 3px;
+background-color: #080808;
+}
+
+
+.book-title {
+font-size: 16px;
+font-weight: bold;
+}
+
+.author {
+font-size: 14px;
+font-weight: bold;
+}
+
+.memo {
+font-size: 14px;
+font-weight: nomal;
+}
+
+
+
+/**movie--------------------*/
+
+.maru {
+  margin: 0 60px;
+  width: 500px;
+  height: 400px;
+  line-height: 100px;
+  background-color: black;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+
+/*装飾--------------------*/
+
+/*マーカー-------*/
+.marker {
+background: linear-gradient(transparent 40%, #080808 0%);
+}
+
+
+
+/*一文字ずつ表示ー-------*/
+.textAnime_2s {
+clip-path: inset(0 100% 0 0);
+/* steps(9)の数字は文字数を入れる */
+animation: textAnime_2s 2s steps(13);
+text-align: center;
+font-size: 16px;
+display: inline-block;
+animation-fill-mode:forwards;/*終了時の状態を維持*/
+}
+
+@keyframes textAnime_2s {
+100% {
+clip-path: inset(0 0 0 0);
+
+}
+}
+
+.textAnime_3s {
+  clip-path: inset(0 100% 0 0);
+  /* steps(9)の数字は文字数を入れる */
+  animation: textAnime_3s 3s steps(13);
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  animation-fill-mode:forwards;/*終了時の状態を維持*/
+  }
+  
+  @keyframes textAnime_3s {
+  100% {
+  clip-path: inset(0 0 0 0);
+  
+  }
+  }
+
+
+  .textAnime_1s {
+    clip-path: inset(0 100% 0 0);
+    /* steps(9)の数字は文字数を入れる */
+    animation: textAnime_1s 1s steps(13);
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    animation-fill-mode:forwards;/*終了時の状態を維持*/
+    }
+    
+    @keyframes textAnime_1s {
+    100% {
+    clip-path: inset(0 0 0 0);
+    
+    }
+    }
+    
+    /*ホバー時ブルブル震えるー-------*/
+    .buruburu-hover:hover {
+      display: inline-block;
+      animation: hurueru .1s  infinite;
+  }
+  
+  @keyframes hurueru {
+      0% {transform: translate(0px, 0px) rotateZ(0deg)}
+      25% {transform: translate(2px, 2px) rotateZ(1deg)}
+      50% {transform: translate(0px, 2px) rotateZ(0deg)}
+      75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+      100% {transform: translate(0px, 0px) rotateZ(0deg)}
+  }
+
+  /*ホバー時チカチカするー-------*/
+  .element-hover:hover {
+    animation: tikatika 0.5s step-end infinite;
+ }
+ 
+ @keyframes tikatika {
+   0% { opacity: 1; }
+   15% { opacity: 0.4; }
+   50% { opacity: 1; }
+   85% { opacity: 0; }
+   95% { opacity: 0.7; }
+   100% { opacity: 1; }
+ }
+
+  /*sp---------------------------------------------------------------------r*/
+
+	
+  @media only screen and (max-width: 950px){
+
+    .book-flex {
+      display:inherit;
+      margin: 0 0 16px 5px;
+    }
+    
+     }
