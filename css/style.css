@@ -10,6 +10,7 @@ body {
 	background-color: #f8f4e6;
   color: #2b2b2b;
   font-family:  'Trebuchet MS','Gill Sans';
+  font-weight: 500;
   margin: 0;
 }
   
@@ -57,6 +58,14 @@ table {
 *,*::before,*::after {
 	box-sizing: border-box;
 }
+
+/* BIZ UDPGothic Stati */
+.biz-udpgothic-bold {
+  font-family: "BIZ UDPGothic", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 /*loading--------------------*/
 
@@ -113,7 +122,7 @@ table {
 .hamburger span {
   width: 25px;
   height: 2px ;
-  background: #fff;
+  background: #f8f4e6;
   position: absolute;
   left: 13px;
   transition: 0.3s ease-in-out;
@@ -137,14 +146,14 @@ table {
 .hamburger.active span:nth-child(1) {
   top: 23.5px;
   left: 12.5px;
-  background :#fff;
+  background :#f8f4e6;
   transform: rotate(-45deg);
 }
 /* 2本目と3本目は重ねて45度回転 */
 .hamburger.active span:nth-child(2),
 .hamburger.active span:nth-child(3) {
   top: 23.5px;
-  background: #fff;
+  background: #f8f4e6;
   transform: rotate(45deg);
 }
 /*
@@ -156,7 +165,7 @@ table {
   width: 100%;
   height: 100vh;
   background-color: #2b2b2b;
-  color: #fff;
+  color: #f8f4e6;
   position: fixed;
   top: 0;
   left: 0;
@@ -187,15 +196,15 @@ table {
   margin-bottom: 20px;
 }
 #navi .menu a {
-  color: #fff;
+  color: #f8f4e6;
   font-weight: normal;
 	font-size: 64px;
 }
 #navi .btn {
   width: 300px;
-  border: solid 1px #fff;
+  border: solid 1px #f8f4e6;
 	border-radius: 50px;
-  color: #fff;
+  color: #f8f4e6;
   display: block;
   font-weight: normal;
   padding: 15px 0;
@@ -205,7 +214,7 @@ table {
 }
 
 #navi .btn:hover {
-  background-color: #fff;
+  background-color: #f8f4e6;
   color: #2b2b2b;
 }
 	
@@ -222,6 +231,7 @@ table {
 	width: 100%;
 	margin: 200px auto 0;
 }
+
 
 .pc-view {
   height: 100vh;
@@ -377,44 +387,36 @@ table {
   color: #777777;
 }
 
+.fadeIn {
+  animation-name:fadeInAnime;
+  animation-duration:5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+  
+  @keyframes fadeInAnime{
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
 /*about--------------------r*/
 
 
+	
+#about .text {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
 
-#about .section-flex {
-	display: flex;
-	gap: 50px;
-	align-items: center;
-}		
-	
-	.watashi img {
-		width: 100%;
-		height: 240px;
-		object-fit: cover;
-    border-radius: 50%;
-	}
-
-  .fadeIn {
-		animation-name:fadeInAnime;
-		animation-duration:5s;
-		animation-fill-mode:forwards;
-		opacity:0;
-		}
-		
-		@keyframes fadeInAnime{
-			from {
-				opacity: 0;
-			}
-		
-			to {
-				opacity: 1;
-			}
-		}
-	
-	
-	.text {
-	  width: 470px;
-	}
+#about .prof-img {
+  width: 100%;
+}
 
   /*一文字ずつ表示ー-------*/
 .textAnime_2s {
@@ -454,6 +456,49 @@ table {
 	.btn {
 	  font-size: 20px;
 	}
+
+  /*====================================================================
+プロフ画像スクロールアニメーション
+====================================================================*/
+
+
+@keyframes infinity-scroll-left {
+  from {
+  transform: translateX(0);
+  }
+
+  to {
+  transform: translateX(-100%);
+  }
+  }
+
+  .scroll-infinity__wrap {
+  display: flex;
+  overflow: hidden;
+  }
+
+  .scroll-infinity__list {
+  display: flex;
+  list-style: none;
+  padding: 0
+  }
+
+  .scroll-infinity__list--left {
+  animation: infinity-scroll-left 40s infinite linear 0.5s both;
+  }
+
+  .scroll-infinity__item {
+  width: calc(100vw / 2);
+  margin: 0px;
+  }
+
+  .scroll-infinity__item>img {
+  width: 100%;
+  }
+
+  .scroll-infinity {
+    margin-bottom: 50px;
+  }
 
 
 
@@ -691,6 +736,12 @@ table {
     left: 4px;
     transform: rotate(-135deg);
     }
+
+
+
+    #graphicdesign .more {
+      margin-top: 60px;
+    }
     
 /*webdesign--------------------r*/
   
@@ -856,6 +907,20 @@ table {
   display: none;
 }
 
+/*常に時ブルブル震えるー-------*/
+.buruburu {
+  display: inline-block;
+  animation: hurueru .1s  infinite;
+}
+
+@keyframes hurueru {
+  0% {transform: translate(0px, 0px) rotateZ(0deg)}
+  25% {transform: translate(1px, 1px) rotateZ(0.5deg)}
+  50% {transform: translate(0px, 1px) rotateZ(0deg)}
+  75% {transform: translate(1px, 0px) rotateZ(-0.5deg)}
+  100% {transform: translate(0px, 0px) rotateZ(0deg)}
+}
+
 
 
 /*section common-----------*/
@@ -882,14 +947,6 @@ table {
 
 /*about--------------------r*/
 
-#about{
-
-}
-
-#about .section-flex {
-	flex-direction: column;
-  margin: 0 auto;
-}
 
 #about .text {
   text-align: center;
@@ -903,6 +960,19 @@ table {
   text-align: justify; /* 両端揃えのまま */
   width: 100%; /* 必要に応じて横幅を調整 */
 }
+
+.scroll-infinity__item {
+  width: calc(100vw / 1);
+  margin: 0px;
+  }
+
+  .scroll-infinity__item>img {
+  width: 100%;
+  }
+
+  .scroll-infinity {
+    margin-bottom: 30px;
+  }
 
 
 /*graphicdesign--------------------r*/
@@ -967,6 +1037,9 @@ table {
     }
   
    
+    #graphicdesign .more {
+      margin-top: 30px;
+    }
     
 
 

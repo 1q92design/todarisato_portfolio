@@ -7,9 +7,11 @@
   <title>todarisato_portfolio</title>
 	<link rel="icon" href="img/favicon.png">
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+	
+	<!-------font------->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@700&display=swap" rel="stylesheet">
 	
 	<!-------css------->
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
@@ -59,7 +61,7 @@
 		<main>
 			<!--メインビジュアル-->
 			<!-------pc-view------->
-			<div class="pc-view">
+			<div class="pc-view fadeIn">
 				<div id="mainvisual">
 					<!--1行目-->
 					<div class="bottom">
@@ -98,7 +100,7 @@
 			</div>
 
 			<!-------sp-view------->
-			<div class="sp-view">
+			<div class="sp-view fadeIn">
 				<div id="mainvisual">
 					<!--1行目-->
 					<div class="bottom">
@@ -110,7 +112,7 @@
 						<div><img src="img/tdrst.png" alt="tdrst"></div>
 						<div class="sp-flex">
 							<div><a href="#about" class="big-hover"><img src="img/1q92_logo.png" alt="tdrst"></a></div>
-							<div><a href="horror.html" class="buruburu-hover"><img src="img/myhorror.png" alt="my horror list"></a></div>
+							<div><a href="horror.html" class="buruburu"><img src="img/myhorror.png" alt="my horror list"></a></div>
 						</div>
 					</div>
 					<!--3行目-->
@@ -148,11 +150,25 @@
 					<div><span class="span3">#section{display:about;}</span></div>
 					<div><span class="span4">/*トダリサトプロフィール*/</span></div>
 				</h2>
+          <div class="prof-img">
+						<div class="scroll-infinity">
+							<div class="scroll-infinity__wrap">
+							<ul class="scroll-infinity__list scroll-infinity__list--left">
+								<li class="scroll-infinity__item"><img src="img/kao_1.png"></li> 
+								<li class="scroll-infinity__item"><img src="img/kao_2.png"></li>
+								<li class="scroll-infinity__item"><img src="img/kao_3.png"></li>
+							</ul>
+							<ul class="scroll-infinity__list scroll-infinity__list--left">
+								<li class="scroll-infinity__item"><img src="img/kao_1.png"></li> 
+								<li class="scroll-infinity__item"><img src="img/kao_2.png"></li>
+								<li class="scroll-infinity__item"><img src="img/kao_3.png"></li>
+							</ul>
+							</div>
+						</div>
+					</div>
 
-				<div class="section-flex">
-					<div class="watashi fadeIn"><img src="img/kao.jpg" alt="顔"></div>
-					<div class="text">
-						<h3 class="textAnime_2s">戸田 梨里　( toda risato )</h3>
+					<div class="text biz-udpgothic-bold">
+						<h3 class="textAnime_2s">( toda risato )</h3>
 						<p class="about-text">
 							1992年生まれ、兵庫県神戸市出身。<br>
 							学生の時に、ロゴやチラシなど<a href="#graphicdesign" class="like">グラフィックデザイン</a>の制作を始める。現在はDTPオペレーターとして働く一方、<a href="https://1q92design.github.io/nigaoe_artposter/" target="_blank" class="like">似顔絵</a>制作や、<a href="#webdesign" class="like">Webデザイン</a>の自主制作を進めている。
@@ -160,7 +176,7 @@
 						</p>
 						<!-- <a href="about.html" class="btn">view more</a> -->
 					</div>
-				</div>
+
 			</section>
 
 				<!--セクション「GRAPHIC DESGIN」-->
@@ -326,9 +342,11 @@
 										</div>
 									</div>
 							</li>
-
 						</ul>
-					</div>			
+					</div>	
+					<div class="more biz-udpgothic-bold">
+						<span>こちらもご覧いただけます。→</span><a href="https://www.instagram.com/tdrst_portfolio?igsh=MXRveTJxbG1wbjNxcA%3D%3D&utm_source=qr" class="like">インスタグラム</a>
+					</div>		
 				</section>
 
 				<!--セクション「WEB DESGIN」-->
@@ -348,20 +366,20 @@
 							</li>
 							<li>
 								<a href="#">
-									<img src="img/1600×1000_1.png" alt="すごいウェブサイト">
-									<h4>すごいウェブサイト</h4>
+									<img src="img/web_2_a.jpg" alt="すごいウェブサイト">
+									<h4>すごいウェブサイト(制作中)</h4>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/web_3_a.jpg" alt="すごいウェブサイト">
+									<h4>すごいウェブサイト(制作中)</h4>
 								</a>
 							</li>
 							<li>
 								<a href="#">
 									<img src="img/1600×1000_1.png" alt="すごいウェブサイト">
-									<h4>すごいウェブサイト</h4>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/1600×1000_1.png" alt="すごいウェブサイト">
-									<h4>すごいウェブサイト</h4>
+									<h4>すごいウェブサイト(制作中)</h4>
 								</a>
 							</li>
 						</ul>
@@ -384,7 +402,7 @@
 								<dt><label for="message"><span class="Form-Item-Label-Required" >必須</span>ご相談内容</label></dt>
 								<dd><textarea id="message" name="message" placeholder="見積もり依頼" required></textarea></dd>
 							</dl>
-								<div class="btn"><input type="submit" value="こちらの内容で送信する"></div>
+								<div class="btn biz-udpgothic-bold"><input type="submit" value="こちらの内容で送信する"></div>
 								<input type="hidden" name="redirectTo" value="https://1q92design.github.io/todarisato_portfolio/contact_ok.html">
 						</form>
 				</section>
